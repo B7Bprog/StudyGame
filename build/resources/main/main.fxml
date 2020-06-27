@@ -21,12 +21,22 @@
             <Image url="@../../../images/worked/rusty.png" />
          </image>
       </ImageView>
-      <Label layoutX="31.0" layoutY="9.0" prefHeight="45.0" prefWidth="112.0" text="StudyCheck - Offline" wrapText="true">
+      <ImageView fitHeight="183.0" fitWidth="192.0" layoutX="17.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/worked/plate2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="128.0" fitWidth="210.0" layoutX="8.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/worked/plate.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="41.0" layoutY="7.0" prefHeight="45.0" prefWidth="112.0" text="StudyCheck - Offline" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="exit" layoutX="166.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="24.0" text="X">
+      <Button fx:id="exit" layoutX="154.0" layoutY="13.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="24.0" text="X">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -40,41 +50,41 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="671.0" prefHeight="51.0" prefWidth="86.0" text="Average performance:" wrapText="true">
+      <Label layoutX="28.0" layoutY="680.0" prefHeight="51.0" prefWidth="86.0" text="Average performance:" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/worked/dogtag-removebg-preview.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="viewChart" arcHeight="5.0" arcWidth="5.0" fill="#ffac1f" height="17.0" layoutX="172.0" layoutY="111.0" onMouseClicked="#popup" stroke="BLACK" strokeType="INSIDE" width="18.0">
+      <Rectangle fx:id="viewChart" arcHeight="5.0" arcWidth="5.0" fill="#ffac1f" height="17.0" layoutX="161.0" layoutY="111.0" onMouseClicked="#popup" stroke="BLACK" strokeType="INSIDE" width="18.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Rectangle>
-      <Label fx:id="display" layoutX="24.0" layoutY="157.0" prefHeight="78.0" prefWidth="161.0">
+      <Label fx:id="display" layoutX="24.0" layoutY="161.0" prefHeight="78.0" prefWidth="161.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <CheckBox fx:id="checkBox" layoutX="102.0" layoutY="64.0" mnemonicParsing="false" onAction="#checkBox" prefHeight="17.0" prefWidth="12.0" />
-      <Label fx:id="performanceLabel" alignment="TOP_LEFT" layoutX="125.0" layoutY="684.0" prefHeight="25.0" prefWidth="79.0" wrapText="true">
+      <Label fx:id="performanceLabel" alignment="TOP_LEFT" layoutX="116.0" layoutY="688.0" prefHeight="25.0" prefWidth="79.0" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="739.0" prefHeight="17.0" prefWidth="92.0" text="Set goal (h/day):" />
-      <TextField fx:id="goal" layoutX="107.0" layoutY="735.0" prefHeight="25.0" prefWidth="35.0" promptText="00" />
-      <Button fx:id="save" layoutX="158.0" layoutY="735.0" mnemonicParsing="false" onAction="#saveGoal" text="Save">
+      <Label layoutX="18.0" layoutY="725.0" prefHeight="17.0" prefWidth="92.0" text="Set goal (h/day):" />
+      <TextField fx:id="goal" layoutX="113.0" layoutY="722.0" prefHeight="25.0" prefWidth="35.0" promptText="00" />
+      <Button fx:id="save" layoutX="158.0" layoutY="722.0" mnemonicParsing="false" onAction="#saveGoal" text="Save">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="18.0" layoutY="756.0" text="Current goal (h):" />
-      <Label fx:id="currentGoal" layoutX="113.0" layoutY="756.0" prefHeight="17.0" prefWidth="92.0" />
+      <Label layoutX="19.0" layoutY="752.0" text="Current goal (h):" />
+      <Label fx:id="currentGoal" layoutX="116.0" layoutY="751.0" prefHeight="17.0" prefWidth="92.0" />
       <ImageView fitHeight="167.0" fitWidth="229.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/worked/machinePanelFramed.png" />
@@ -106,8 +116,8 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Circle fx:id="myState" fill="#750101" layoutX="178.0" layoutY="73.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="149.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <Circle fx:id="myState" fill="#750101" layoutX="167.0" layoutY="73.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="138.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/worked/indicator.png" />
          </image>
