@@ -1,14 +1,19 @@
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -46,9 +51,12 @@ public class SceneController implements Initializable {
     private static TextField myGoal;
     protected static Label myCurrentGoal;
     private static Label myPerformanceLabel;
-    private static ProgressBar myProgressBar;
+    private static ProgressIndicator myProgressIndicator;
     static long currentTime = 0;
     protected static boolean stageIsOff = true;
+    private static ImageView myCogwheele1;
+    private static ImageView myCogwheele2;
+    private static ImageView myShadow;
 
 
     //private static int freshGoal;
@@ -89,20 +97,30 @@ public class SceneController implements Initializable {
     private Circle sign;
 
     @FXML
-    private ProgressBar progressBar;
+    private ProgressIndicator progressIndicator;
+
+    @FXML
+    private ImageView cogwheel1;
+
+    @FXML
+    private ImageView cogwheel2;
+
+    @FXML
+    private ImageView shadow;
 
     @FXML
 
     private Button exit;
-
     public SceneController() throws SocketException {
     }
 
 
+    //static RotateTransition rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
+    //static RotateTransition rt2 = new RotateTransition(Duration.millis(5500), myCogwheele2);
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
 
 
 
@@ -117,7 +135,15 @@ public class SceneController implements Initializable {
         myGoal = goal;
         myCurrentGoal = currentGoal;
         myPerformanceLabel = performanceLabel;
-        myProgressBar = progressBar;
+        myProgressIndicator = progressIndicator;
+        myCogwheele1 = cogwheel1;
+        myCogwheele2 = cogwheel2;
+        myShadow = shadow;
+
+        myProgressIndicator.setStyle(" -fx-progress-color: gray;");
+
+
+
 
 
 
@@ -173,13 +199,15 @@ public class SceneController implements Initializable {
 
 
     public static void setDisplayServerOffline() throws InterruptedException {
-        
+
 
     }
 
 
 
-    public void checkBox(){
+    public void checkBox() throws InterruptedException {
+
+
 
         if(checkBoxChecked){
             checkBoxChecked = false;
@@ -191,12 +219,15 @@ public class SceneController implements Initializable {
             myMyState.setFill(Color.GREEN);
             currentState = true;
             Main.loadTime();
+            rotateCogwheel1(1);
             //LoadFile.timeAtLoad = 0;
             //guiMessageSender.sendState(true);
 
         }else{
             myMyState.setFill(Color.RED);
             currentState = false;
+
+            rotateCogwheel1(2);
             //guiMessageSender.sendState(false);
 
         }
@@ -215,8 +246,13 @@ public class SceneController implements Initializable {
 
     }
 
-    public void popup() throws FileNotFoundException {
+    public void popup() throws FileNotFoundException, InterruptedException {
+
+
+
         if(stageIsOff) {
+
+
             dialogStage = new Stage();
             //System.out.println("in popup");
             //Stage dialogStage = new Stage();
@@ -285,7 +321,7 @@ public class SceneController implements Initializable {
     public static void setProgressBar() throws FileNotFoundException {
         if(getFreshGoal() != 0) {
            // System.out.println("We're in set progress bar method");
-            myProgressBar.setProgress((((getCurrentTime() * 100) / (getFreshGoal()))) / 100f);
+            myProgressIndicator.setProgress((((getCurrentTime() * 100) / (getFreshGoal()))) / 100f);
 
             //System.out.println("This is calculation: " + ((((getCurrentTime() * 100) / (getFreshGoal()))))/100f);
 
@@ -303,6 +339,46 @@ public class SceneController implements Initializable {
     public static int getFreshGoal() throws FileNotFoundException {
         ReadGoal.readMyGoal();
         return (ReadGoal.freshGoal * 60);
+    }
+
+    public static void rotateCogwheel1(int in) throws InterruptedException {
+        /*while(true) {
+            for (int i = 1; i < 361; i++) {
+                myCogwheele1.setRotate(myCogwheele1.getRotate() + i);
+            }
+            Thread.sleep(100);
+        }*/
+
+        RotateTransition rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
+        RotateTransition rt2 = new RotateTransition(Duration.millis(5500), myCogwheele2);
+        RotateTransition rt3 = new RotateTransition(Duration.millis(5150), myShadow);
+
+        switch (in){
+            case 1:
+            rt.setByAngle(360);
+            rt.setCycleCount(Animation.INDEFINITE);
+            rt.setInterpolator(Interpolator.LINEAR);
+            rt.play();
+
+
+            rt2.setByAngle(-360);
+            rt2.setCycleCount(Animation.INDEFINITE);
+            rt2.setInterpolator(Interpolator.LINEAR);
+            rt2.play();
+
+                rt3.setByAngle(-360);
+                rt3.setCycleCount(Animation.INDEFINITE);
+                rt3.setInterpolator(Interpolator.LINEAR);
+                rt3.play();
+            break;
+            case 2:
+            System.out.println("Inside stoprotate");
+            rt.pause();
+            rt2.stop();
+            break;
+        }
+
+
     }
 
 
