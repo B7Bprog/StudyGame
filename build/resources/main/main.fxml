@@ -18,17 +18,17 @@
    <children>
       <ImageView fitHeight="809.0" fitWidth="246.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/rusty.png" />
+            <Image url="rusty.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="183.0" fitWidth="192.0" layoutX="17.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/plate2.png" />
+            <Image url="plate2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="128.0" fitWidth="210.0" layoutX="8.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/plate.png" />
+            <Image url="plate.png" />
          </image>
       </ImageView>
       <Label layoutX="41.0" layoutY="7.0" prefHeight="45.0" prefWidth="112.0" text="StudyCheck - Offline" wrapText="true">
@@ -53,7 +53,7 @@
       </Label>
       <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/dogtag-removebg-preview.png" />
+            <Image url="dogtag-removebg-preview.png" />
          </image>
       </ImageView>
       <Rectangle fx:id="viewChart" arcHeight="5.0" arcWidth="5.0" fill="#ffac1f" height="17.0" layoutX="161.0" layoutY="111.0" onMouseClicked="#popup" stroke="BLACK" strokeType="INSIDE" width="18.0">
@@ -83,28 +83,28 @@
       <Label fx:id="currentGoal" layoutX="116.0" layoutY="753.0" prefHeight="17.0" prefWidth="92.0" />
       <ImageView fitHeight="167.0" fitWidth="229.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/machinePanelFramed.png" />
+            <Image url="machinePanelFramed.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cogwheel1" fitHeight="128.0" fitWidth="145.0" layoutX="-50.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/cogWithMiddle.png" />
+            <Image url="cogWithMiddle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="shadow" fitHeight="152.0" fitWidth="152.0" layoutX="38.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/cogWithMiddleShadow.png" />
+            <Image url="cogWithMiddleShadow.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cogwheel2" fitHeight="164.0" fitWidth="161.0" layoutX="33.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/cogWithMiddleDarker.png" />
+            <Image url="cogWithMiddleDarker.png" />
          </image>
       </ImageView>
       <ProgressIndicator fx:id="progressIndicator" layoutX="150.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="78.0" prefWidth="79.0" progress="0.0" />
       <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/dogtag-removebg-preview.png" />
+            <Image url="dogtag-removebg-preview.png" />
          </image>
       </ImageView>
       <Label fx:id="level" alignment="TOP_LEFT" layoutX="18.0" layoutY="541.0" prefHeight="93.0" prefWidth="192.0" wrapText="true">
@@ -115,23 +115,23 @@
       <Circle fx:id="myState" fill="#750101" layoutX="167.0" layoutY="73.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="138.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/indicator.png" />
+            <Image url="indicator.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="128.0" fitWidth="35.0" layoutX="189.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/hose.png" />
+            <Image url="hose.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="219.0" fitWidth="203.0" layoutX="4.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/canister.png" />
+            <Image url="canister.png" />
          </image>
       </ImageView>
       <ProgressBar fx:id="pump" layoutX="33.0" layoutY="487.0" opacity="0.55" prefHeight="17.0" prefWidth="112.0" progress="0.0" rotate="-182.0" />
       <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="155.0" layoutY="10.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/exitButton.png" />
+            <Image url="exitButton.png" />
          </image>
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />

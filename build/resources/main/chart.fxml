@@ -15,12 +15,12 @@
    <children>
       <ImageView fitHeight="518.0" fitWidth="866.0" layoutX="-2.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../images/worked/chartBack.png" />
+            <Image url="chartBack.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="398.0" fitWidth="800.0" layoutX="34.0" layoutY="67.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../images/worked/chartLightBack.png" />
+            <Image url="chartLightBack.png" />
          </image>
       </ImageView>
       <Label layoutX="14.0" layoutY="18.0" prefHeight="27.0" prefWidth="267.0" text="StudyCheck - Last Seven Days:">
@@ -60,7 +60,7 @@
       </Label>
       <ImageView fitHeight="44.0" fitWidth="33.0" layoutX="794.0" layoutY="14.0" onMousePressed="#closeStage" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/exitButton.png" />
+            <Image url="exitButton.png" />
          </image>
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
