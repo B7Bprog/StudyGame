@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -45,7 +46,7 @@ public class SceneController implements Initializable {
     protected static Rectangle myPartnerState;
     protected static Circle mySign;
     protected static CheckBox myCheckBox;
-    protected static Rectangle myMyState;
+    protected static Circle myMyState;
     protected static Rectangle myViewChart;
     protected static boolean currentState = false;
     private static TextField myGoal;
@@ -57,6 +58,11 @@ public class SceneController implements Initializable {
     private static ImageView myCogwheele1;
     private static ImageView myCogwheele2;
     private static ImageView myShadow;
+    private static ImageView myInsignia;
+    private static Label myLevel;
+    public static ProgressBar myPump;
+    static double current = 1.0;
+
 
 
     //private static int freshGoal;
@@ -68,6 +74,8 @@ public class SceneController implements Initializable {
             e.printStackTrace();
         }
     }*/
+    @FXML
+    private ProgressBar pump;
 
     @FXML
     private Label performanceLabel;
@@ -79,10 +87,13 @@ public class SceneController implements Initializable {
     private Label currentGoal;
 
     @FXML
+    private Label level;
+
+    @FXML
     private Button save;
 
     @FXML
-    private Rectangle myState;
+    private Circle myState;
 
     @FXML
     private Rectangle viewChart;
@@ -109,14 +120,18 @@ public class SceneController implements Initializable {
     private ImageView shadow;
 
     @FXML
+    private ImageView insignia;
+
+    @FXML
 
     private Button exit;
     public SceneController() throws SocketException {
     }
 
 
-    //static RotateTransition rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
-    //static RotateTransition rt2 = new RotateTransition(Duration.millis(5500), myCogwheele2);
+    static RotateTransition rt;
+    static RotateTransition rt2;
+    static RotateTransition rt3;
 
 
     @Override
@@ -139,8 +154,14 @@ public class SceneController implements Initializable {
         myCogwheele1 = cogwheel1;
         myCogwheele2 = cogwheel2;
         myShadow = shadow;
+        myInsignia = insignia;
+        myLevel = level;
+        myPump = pump;
 
-        myProgressIndicator.setStyle(" -fx-progress-color: gray;");
+        //myPump.setStyle(" -fx-control-inner-background: palegreen;" );
+        myPump.setStyle(" -fx-accent: orange;");
+        myProgressIndicator.setStyle(" -fx-progress-color: orange;");
+
 
 
 
@@ -151,7 +172,13 @@ public class SceneController implements Initializable {
 
 
         Trigger trigger = new Trigger();
+
+
+        PumpThread pumpThread = new PumpThread();
+
+
         new Thread(trigger).start();
+        new Thread(pumpThread).start();
 
         TimeCounter timeCounter = new TimeCounter();
         new Thread(timeCounter).start();
@@ -187,6 +214,11 @@ public class SceneController implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+       rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
+        rt2 = new RotateTransition(Duration.millis(5500), myCogwheele2);
+        rt3 = new RotateTransition(Duration.millis(5150), myShadow);
+
 
 
     }
@@ -224,7 +256,7 @@ public class SceneController implements Initializable {
             //guiMessageSender.sendState(true);
 
         }else{
-            myMyState.setFill(Color.RED);
+            myMyState.setFill(Color.rgb(117,1,1));
             currentState = false;
 
             rotateCogwheel1(2);
@@ -308,13 +340,13 @@ public class SceneController implements Initializable {
     public static void setAveragePerformanceLabel() throws FileNotFoundException {
         ReadGoal.readMyGoal();
         if(TextToInt.averageDaily < ReadGoal.freshGoal-2) {
-            myPerformanceLabel.setText("Very Poor!");
+            myPerformanceLabel.setText("Basic");
         }
         else if(TextToInt.averageDaily >= ReadGoal.freshGoal){
             myPerformanceLabel.setText("Excellent!");
         }
         else{
-            myPerformanceLabel.setText("Weak");
+            myPerformanceLabel.setText("Quite Good");
         }
     }
 
@@ -349,12 +381,15 @@ public class SceneController implements Initializable {
             Thread.sleep(100);
         }*/
 
-        RotateTransition rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
+        /*RotateTransition rt = new RotateTransition(Duration.millis(3000), myCogwheele1);
         RotateTransition rt2 = new RotateTransition(Duration.millis(5500), myCogwheele2);
-        RotateTransition rt3 = new RotateTransition(Duration.millis(5150), myShadow);
+        RotateTransition rt3 = new RotateTransition(Duration.millis(5150), myShadow);*/
 
         switch (in){
             case 1:
+            setMyLevel();
+
+
             rt.setByAngle(360);
             rt.setCycleCount(Animation.INDEFINITE);
             rt.setInterpolator(Interpolator.LINEAR);
@@ -373,12 +408,38 @@ public class SceneController implements Initializable {
             break;
             case 2:
             System.out.println("Inside stoprotate");
-            rt.pause();
+            //rt.setDuration(Duration.millis(3000));
+            rt.stop();
             rt2.stop();
+            rt3.stop();
+
             break;
         }
 
 
+    }
+
+    public static void setInsignia(){
+        Image img1 = new Image(Main.class.getResourceAsStream("1Private.png"));
+        Image img2 = new Image(Main.class.getResourceAsStream("12SergeantMajorOfTheArmy.png"));
+
+        myInsignia.setImage(img1);
+
+    }
+    public static void setMyLevel(){
+        String basic = "Fundamental Awareness";
+        myLevel.setText("Your current expertise level: \n \n " + basic);
+    }
+
+    public static void pumping (double in){
+
+
+        current += in;
+
+        myPump.setProgress(current);
+        if(current < 0.1){
+            current = 1.0;
+        }
     }
 
 
