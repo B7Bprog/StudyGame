@@ -36,10 +36,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="exit" layoutX="154.0" layoutY="13.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="24.0" text="X">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
       <Label layoutX="31.0" layoutY="62.0" prefHeight="20.0" prefWidth="66.0" text="My state:">
          <font>
             <Font size="14.0" />
@@ -84,7 +80,7 @@
          </cursor>
       </Button>
       <Label layoutX="19.0" layoutY="752.0" text="Current goal (h):" />
-      <Label fx:id="currentGoal" layoutX="116.0" layoutY="751.0" prefHeight="17.0" prefWidth="92.0" />
+      <Label fx:id="currentGoal" layoutX="116.0" layoutY="753.0" prefHeight="17.0" prefWidth="92.0" />
       <ImageView fitHeight="167.0" fitWidth="229.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/worked/machinePanelFramed.png" />
@@ -102,7 +98,7 @@
       </ImageView>
       <ImageView fx:id="cogwheel2" fitHeight="164.0" fitWidth="161.0" layoutX="33.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/worked/cogWithMiddle.png" />
+            <Image url="@../../../images/worked/cogWithMiddleDarker.png" />
          </image>
       </ImageView>
       <ProgressIndicator fx:id="progressIndicator" layoutX="150.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="78.0" prefWidth="79.0" progress="0.0" />
@@ -111,9 +107,9 @@
             <Image url="@../../../images/worked/dogtag-removebg-preview.png" />
          </image>
       </ImageView>
-      <Label fx:id="level" alignment="TOP_LEFT" layoutX="21.0" layoutY="549.0" prefHeight="68.0" prefWidth="192.0" wrapText="true">
+      <Label fx:id="level" alignment="TOP_LEFT" layoutX="18.0" layoutY="541.0" prefHeight="93.0" prefWidth="192.0" wrapText="true">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="12.5" />
          </font>
       </Label>
       <Circle fx:id="myState" fill="#750101" layoutX="167.0" layoutY="73.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
@@ -133,5 +129,13 @@
          </image>
       </ImageView>
       <ProgressBar fx:id="pump" layoutX="33.0" layoutY="487.0" opacity="0.55" prefHeight="17.0" prefWidth="112.0" progress="0.0" rotate="-182.0" />
+      <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="155.0" layoutY="10.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/worked/exitButton.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

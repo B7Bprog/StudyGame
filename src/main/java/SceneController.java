@@ -220,7 +220,11 @@ public class SceneController implements Initializable {
         rt3 = new RotateTransition(Duration.millis(5150), myShadow);
 
 
-
+        try {
+            setExperties();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void setLabelText(String text){
@@ -237,7 +241,7 @@ public class SceneController implements Initializable {
 
 
 
-    public void checkBox() throws InterruptedException {
+    public void checkBox() throws InterruptedException, FileNotFoundException {
 
 
 
@@ -252,6 +256,7 @@ public class SceneController implements Initializable {
             currentState = true;
             Main.loadTime();
             rotateCogwheel1(1);
+            setExperties();
             //LoadFile.timeAtLoad = 0;
             //guiMessageSender.sendState(true);
 
@@ -332,6 +337,7 @@ public class SceneController implements Initializable {
         setMyCurrentGoal();
         setAveragePerformanceLabel();
         setProgressBar();
+        setExperties();
     }
     public static void setMyCurrentGoal(){
         myCurrentGoal.setText((Integer.toString(ReadGoal.freshGoal)) +" hours/day.");
@@ -340,13 +346,13 @@ public class SceneController implements Initializable {
     public static void setAveragePerformanceLabel() throws FileNotFoundException {
         ReadGoal.readMyGoal();
         if(TextToInt.averageDaily < ReadGoal.freshGoal-2) {
-            myPerformanceLabel.setText("Basic");
+            myPerformanceLabel.setText("Not bad!");
         }
         else if(TextToInt.averageDaily >= ReadGoal.freshGoal){
             myPerformanceLabel.setText("Excellent!");
         }
         else{
-            myPerformanceLabel.setText("Quite Good");
+            myPerformanceLabel.setText("Quite Good!");
         }
     }
 
@@ -373,7 +379,13 @@ public class SceneController implements Initializable {
         return (ReadGoal.freshGoal * 60);
     }
 
-    public static void rotateCogwheel1(int in) throws InterruptedException {
+
+
+    public static void setExperties() throws FileNotFoundException {
+        setMyLevel((int)((((getCurrentTime() * 100) / (getFreshGoal()))) ));
+    }
+
+    public static void rotateCogwheel1(int in) throws InterruptedException, FileNotFoundException {
         /*while(true) {
             for (int i = 1; i < 361; i++) {
                 myCogwheele1.setRotate(myCogwheele1.getRotate() + i);
@@ -387,7 +399,7 @@ public class SceneController implements Initializable {
 
         switch (in){
             case 1:
-            setMyLevel();
+            //setMyLevel((int)((((getCurrentTime() * 100) / (getFreshGoal()))) ));
 
 
             rt.setByAngle(360);
@@ -426,9 +438,57 @@ public class SceneController implements Initializable {
         myInsignia.setImage(img1);
 
     }
-    public static void setMyLevel(){
-        String basic = "Fundamental Awareness";
-        myLevel.setText("Your current expertise level: \n \n " + basic);
+    public static void setMyLevel(int level){
+
+        System.out.println("This is level now: " + level);
+
+        if (level < 10) {
+
+
+            String basic = "Fundamental Awareness \n - progress started...";
+            myLevel.setText("   Your current level today: \n \n " + basic);
+        }else if(level <20) {
+
+            String better = "Great start. \n - Keep up the good work!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }
+        else if(level <30) {
+
+            String better = "Going strong. \n - Very good!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }
+        else if(level <40) {
+
+            String better = "You are doing great here! \n - Great effort so far.";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }
+        else if(level <50) {
+
+            String better = "That's the spirit! \n - You are getting there!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }
+        else if(level <60) {
+
+            String better = "Done great so far! \n - Show what you can do!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }else if(level <70) {
+
+            String better = "Excellent performance up to now. \n - Carry on!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }else if(level <80) {
+
+            String better = "Amazing job. \n - So far very well done.";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }else if(level <90) {
+
+            String better = "Almost there! \n - Do a little more!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }else {
+
+            String better = "You are awesome!!!  \n A real achiever and WINNER!";
+            myLevel.setText("   Your current level today: \n \n " + better);
+        }
+
     }
 
     public static void pumping (double in){
