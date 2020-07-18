@@ -5,22 +5,37 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="358.0" prefWidth="228.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+<AnchorPane prefHeight="787.0" prefWidth="228.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
    <children>
-      <Label layoutX="31.0" layoutY="9.0" prefHeight="45.0" prefWidth="112.0" text="StudyCheck - Offline" wrapText="true">
+      <ImageView fitHeight="809.0" fitWidth="246.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="rusty.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="183.0" fitWidth="192.0" layoutX="17.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="plate2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="128.0" fitWidth="210.0" layoutX="8.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="plate.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="41.0" layoutY="7.0" prefHeight="45.0" prefWidth="112.0" text="StudyCheck - Offline" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="exit" layoutX="166.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="24.0" text="X">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
       <Label layoutX="31.0" layoutY="62.0" prefHeight="20.0" prefWidth="66.0" text="My state:">
          <font>
             <Font size="14.0" />
@@ -31,43 +46,96 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Rectangle fx:id="myState" arcHeight="5.0" arcWidth="5.0" fill="RED" height="35.0" layoutX="156.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
-      <Label layoutX="29.0" layoutY="254.0" prefHeight="51.0" prefWidth="86.0" text="Average performance:" wrapText="true">
+      <Label layoutX="28.0" layoutY="680.0" prefHeight="51.0" prefWidth="86.0" text="Average performance:" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Rectangle fx:id="viewChart" arcHeight="5.0" arcWidth="5.0" fill="#ffac1f" height="17.0" layoutX="172.0" layoutY="111.0" onMouseClicked="#popup" stroke="BLACK" strokeType="INSIDE" width="18.0">
+      <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="dogtag-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="viewChart" arcHeight="5.0" arcWidth="5.0" fill="#ffac1f" height="17.0" layoutX="161.0" layoutY="111.0" onMouseClicked="#popup" stroke="BLACK" strokeType="INSIDE" width="18.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e0e1" height="78.0" layoutX="31.0" layoutY="139.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
-      <Label fx:id="display" layoutX="37.0" layoutY="139.0" prefHeight="78.0" prefWidth="161.0">
+      <Label fx:id="display" layoutX="24.0" layoutY="161.0" prefHeight="78.0" prefWidth="161.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <CheckBox fx:id="checkBox" layoutX="102.0" layoutY="64.0" mnemonicParsing="false" onAction="#checkBox" prefHeight="17.0" prefWidth="12.0" />
-      <Label fx:id="performanceLabel" alignment="TOP_LEFT" layoutX="120.0" layoutY="267.0" prefHeight="25.0" prefWidth="79.0" wrapText="true">
+      <Label fx:id="performanceLabel" alignment="TOP_LEFT" layoutX="116.0" layoutY="688.0" prefHeight="25.0" prefWidth="79.0" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="307.0" prefHeight="17.0" prefWidth="92.0" text="Set goal (h/day):" />
-      <TextField fx:id="goal" layoutX="109.0" layoutY="305.0" prefHeight="25.0" prefWidth="35.0" promptText="00" />
-      <Button fx:id="save" layoutX="161.0" layoutY="304.0" mnemonicParsing="false" onAction="#saveGoal" text="Save">
+      <Label layoutX="18.0" layoutY="725.0" prefHeight="17.0" prefWidth="92.0" text="Set goal (h/day):" />
+      <TextField fx:id="goal" layoutX="113.0" layoutY="722.0" prefHeight="25.0" prefWidth="35.0" promptText="00" />
+      <Button fx:id="save" layoutX="158.0" layoutY="722.0" mnemonicParsing="false" onAction="#saveGoal" text="Save">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="18.0" layoutY="333.0" text="Current goal (h):" />
-      <Label fx:id="currentGoal" layoutX="108.0" layoutY="334.0" prefHeight="17.0" prefWidth="92.0" />
-      <ProgressBar fx:id="progressBar" layoutX="32.0" layoutY="226.0" prefHeight="18.0" prefWidth="161.0" progress="0.0" />
-      <Label layoutX="26.0" layoutY="244.0" prefHeight="17.0" prefWidth="18.0" text="0%" />
-      <Label layoutX="101.0" layoutY="245.0" text="50%" />
-      <Label layoutX="177.0" layoutY="246.0" text="100%" />
-      <Label layoutX="61.0" layoutY="244.0" prefHeight="17.0" prefWidth="24.0" text="25%" />
-      <Label layoutX="141.0" layoutY="245.0" text="75%" />
+      <Label layoutX="19.0" layoutY="752.0" text="Current goal (h):" />
+      <Label fx:id="currentGoal" layoutX="116.0" layoutY="753.0" prefHeight="17.0" prefWidth="92.0" />
+      <ImageView fitHeight="167.0" fitWidth="229.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="machinePanelFramed.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cogwheel1" fitHeight="128.0" fitWidth="145.0" layoutX="-50.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="cogWithMiddle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shadow" fitHeight="152.0" fitWidth="152.0" layoutX="38.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="cogWithMiddleShadow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cogwheel2" fitHeight="164.0" fitWidth="161.0" layoutX="33.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="cogWithMiddleDarker.png" />
+         </image>
+      </ImageView>
+      <ProgressIndicator fx:id="progressIndicator" layoutX="150.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="78.0" prefWidth="79.0" progress="0.0" />
+      <ImageView fitHeight="152.0" fitWidth="229.0" layoutX="4.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="dogtag-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="level" alignment="TOP_LEFT" layoutX="18.0" layoutY="541.0" prefHeight="93.0" prefWidth="192.0" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.5" />
+         </font>
+      </Label>
+      <Circle fx:id="myState" fill="#750101" layoutX="167.0" layoutY="73.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="57.0" fitWidth="66.0" layoutX="138.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="indicator.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="128.0" fitWidth="35.0" layoutX="189.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="hose.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="219.0" fitWidth="203.0" layoutX="4.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="canister.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="pump" layoutX="33.0" layoutY="487.0" opacity="0.55" prefHeight="17.0" prefWidth="112.0" progress="0.0" rotate="-182.0" />
+      <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="155.0" layoutY="10.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="exitButton.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

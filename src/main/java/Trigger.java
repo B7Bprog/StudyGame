@@ -84,19 +84,16 @@ public class Trigger extends Task {
             }
 
 
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        //FX Stuff done here
-                        LoadFile.readFile();
-                        SceneController.setLabelText("Today's Study Time: \n" + "------------------------" + "\n" + (Long.toString(Long.parseLong(LoadFile.splitWords2[1]) / 60)) + " hour(s) and " + (Long.toString(Long.parseLong(LoadFile.splitWords2[1]) % 60)) + " min(s)");
-                        SceneController.setProgressBar();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } finally {
+            Platform.runLater(() -> {
+                try {
+                    //FX Stuff done here
+                    LoadFile.readFile();
+                    SceneController.setLabelText("Today's Study Time: \n" + "------------------------" + "\n" + (Long.toString(Long.parseLong(LoadFile.splitWords2[1]) / 60)) + " hour(s) and " + (Long.toString(Long.parseLong(LoadFile.splitWords2[1]) % 60)) + " min(s)");
+                    SceneController.setProgressBar();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } finally {
 
-                    }
                 }
             });
 

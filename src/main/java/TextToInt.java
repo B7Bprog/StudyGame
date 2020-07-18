@@ -4,7 +4,7 @@ public class TextToInt {
 
 
     static ArrayList<String> lastSeven = new ArrayList<>();
-    static int[] hours = new int[7];
+    static double[] hours = new double[7];
     static int[] minutes = new int[7];
     static String[] days = new String[7];
     static int averageDaily = 0;
@@ -102,6 +102,15 @@ public class TextToInt {
             if(minutes[i] > 29){
                 hours[i]++;
             }
+        }
+    }
+
+
+    public static void getExactHours(){
+        for(int i = 0; i < hours.length; i++){
+
+                    hours[i] += (minutes[i] / 60d);
+
         }
     }
 

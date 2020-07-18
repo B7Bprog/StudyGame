@@ -39,7 +39,7 @@ public class Main extends Application {
         TextToInt.getLastSevenDays();
         TextToInt.findHours();
         TextToInt.findMinutes();
-        TextToInt.roundHours();
+        TextToInt.getExactHours();
         TextToInt.findDays();
         TextToInt.getAverageHours();
         //TextToInt.viewHours();
