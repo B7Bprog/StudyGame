@@ -159,7 +159,7 @@ public class SceneController implements Initializable {
         myPump = pump;
 
         //myPump.setStyle(" -fx-control-inner-background: palegreen;" );
-        myPump.setStyle(" -fx-accent: orange;");
+        myPump.setStyle(" -fx-accent: blue;");
         myProgressIndicator.setStyle(" -fx-progress-color: orange;");
 
 
@@ -484,7 +484,6 @@ public class SceneController implements Initializable {
             String better = "Almost there! \n - Do a little more!";
             myLevel.setText("   Your current level today: \n \n " + better);
         }else {
-
             String better = "You are awesome!!!  \n A real achiever and WINNER!";
             myLevel.setText("   Your current level today: \n \n " + better);
         }
